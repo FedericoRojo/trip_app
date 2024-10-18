@@ -4,6 +4,9 @@ const driverRouter = require("./routes/driverRouter");
 const locationRouter = require("./routes/locationRouter");
 const passengerRouter = require("./routes/locationRouter");
 const tripRouter = require("./routes/tripRouter");
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 

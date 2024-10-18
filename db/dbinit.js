@@ -1,5 +1,6 @@
 const {Client} = require("pg");
 
+
 const SQL = `
 CREATE TABLE IF NOT EXISTS passenger(
     dni INTEGER PRIMARY KEY,
@@ -75,7 +76,7 @@ INSERT INTO drives (driver, trip) VALUES
 async function main (){
     console.log("seeding..");
     const client = new Client({
-        connectionString: "postgresql://postgres:1234@localhost:5432/trip_app",
+        connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`,
     });
     await client.connect();
     await client.query(SQL);
