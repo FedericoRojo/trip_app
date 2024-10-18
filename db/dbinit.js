@@ -1,6 +1,7 @@
 const {Client} = require("pg");
+const dotenv = require('dotenv');
 
-
+dotenv.config();
 const SQL = `
 CREATE TABLE IF NOT EXISTS passenger(
     dni INTEGER PRIMARY KEY,
