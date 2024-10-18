@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Trips</title>
+    <link rel="stylesheet" type="text/css" href="/styleViewTrips.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Search trips</h1>
+    <div class="form-container">
+        <form method="GET" action="/getTripTo">
+            <label for="location">Select Location where you want to go:</label>
+            <select id="location" name="location" required>
+                <option value="" disabled selected>Select a location</option>
+                <% locations.forEach(loc => { %>
+                    <option value="<%= loc.zipcode %>"><%= loc.name %></option>
+                <% }) %>
+            </select>
+            <button type="submit">Submit</button>
+        </form> 
+        <form method="GET" action="/getTripFrom">
+            <label for="location">Select Location where you are:</label>
+            <select id="location" name="location" required>
+                <option value="" disabled selected>Select a location</option>
+                <% locations.forEach(loc => { %>
+                    <option value="<%= loc.zipcode %>"><%= loc.name %></option>
+                <% }) %>
+            </select>
+            <button type="submit">Submit</button>
+        </form> 
+    </div>
+    <% if(trips.length != 0) { %>
+        <ul>
+            <% trips.forEach((t) => { %>
+                <li>
+                    <%= t.name %>
+                    <a href="/trip/<%= t.id %>">
+                        <span> Details </span>
+                    </a>
+                    <a href="/trip/<%= t.id %>/handlePassengers">
+                        <span> Handle passengers </span>
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+    <div class="btn-container">
+        <a href="/createTrip" class="btn">
+            <span> Create trip </span>
+        </a>
+    </div>
+  </body>
+</html>
+
+
+

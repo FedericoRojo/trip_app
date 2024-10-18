@@ -1,0 +1,171 @@
+/* styles.css */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #007BFF;
+}
+
+/* Header styles */
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 0;
+    display: flex;             
+    align-items: center;  
+    position: relative;     
+}
+
+header h1 {
+    margin: 0px;
+    flex: 1;
+    text-align: center;
+    color: white;
+}
+
+nav {
+    position: absolute;
+    left: 0px; 
+    top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Location list styles */
+ul {
+    list-style-type: none;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+button {
+    background-color: #dc3545; /* Bootstrap danger color for delete */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Error message styling */
+p {
+    color: red;
+    text-align: center;
+}
+
+/* Create location link */
+a {
+    text-align: center;
+    margin: 20px;
+    padding: 15px;
+    background-color: 007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;  
+    padding: 10px 20px;    
+    margin: 0 auto;
+    background-color: #007BFF; 
+    color: white;           
+    text-decoration: none;  
+    border-radius: 5px;    
+    font-size: 16px;        
+    text-align: center;     
+    transition: background-color 0.3s ease; 
+}
+
+.btn a:hover{
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3; 
+}
+
+.btn-container {
+    padding: 20px;
+    display: inline-block;
+    text-align: center; 
+    margin-top: 20px;  
+}

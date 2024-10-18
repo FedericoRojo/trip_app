@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Create Trip</title>
+    <link rel="stylesheet" type="text/css" href="/styleCreateTrip.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Create Trip</h1>
+  
+    <form method="POST" action="/editTrip/<%= trip.id %>">
+
+        <label for="datefrom">Select date when trip starts:</label>
+        <input type="date" id="datefrom" name="fromdate" value="<%= trip ? trip.fromdate : '' %>">
+
+        <label for="locationfrom">Select Location where trips starts:</label>
+        <select id="locationfrom" name="fromlocation" required>
+            <option value="">Select a location</option>
+            <% locations.forEach(loc => { %>
+                <option value="<%= loc.zipcode %>"  <%= trip && trip.locationfrom === loc.zipcode ? 'selected' : '' %> > <%= loc.name %> </option>
+            <% }) %>
+        </select>
+
+        <label for="dateto">Select date when trip finishes:</label>
+        <input type="date" id="dateto" name="todate"  value="<%= trip ? trip.todate  : '' %>">
+
+        <label for="locationto">Select Location where trips finishes:</label>
+        <select id="locationto" name="tolocation" required>
+            <option value="">Select a location</option>
+            <% locations.forEach(loc => { %>
+                <option value="<%= loc.zipcode %>" <%= trip && trip.locationto === loc.zipcode ? 'selected' : '' %>> <%= loc.name %> </option>
+            <% }) %>
+        </select>
+
+        <label for="driverid">Driver dni: </label>
+        <input type="number" id="driverid" name="driverid" value="<%= trip ? trip.driverid  : '' %>">
+
+        <label for="name">Trip's name: </label>
+        <input type="text" id="name" name="name" value="<%= trip ? trip.name  : '' %>">
+        
+        <label for="maxpassengers">Max passengers: </label>
+        <input type="number" id="maxpassengers" name="maxpassengers" value="<%= trip ? trip.maxpassengers  : '' %>">
+
+
+        <button type="submit">Submit</button>
+    </form> 
+  </body>
+</html>
+
+
+

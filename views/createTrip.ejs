@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Create Trip</title>
+    <link rel="stylesheet" type="text/css" href="/styleCreateTrip.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Create Trip</h1>
+    <% if (error) { %>
+      <p>Error: <%= error %></p>
+    <% } %>
+    <form method="POST" action="/createTrip">
+        <label for="datefrom">Select date when trip starts:</label>
+        <input type="date" id="datefrom" name="fromDate">
+        <label for="locationfrom">Select Location where trips starts:</label>
+        <select id="locationfrom" name="fromLocation" required>
+            <option value="" disabled selected>Select a location</option>
+            <% locations.forEach(loc => { %>
+                <option value="<%= loc.zipcode %>"><%= loc.name %></option>
+            <% }) %>
+        </select>
+
+        <label for="dateto">Select date when trip finishes:</label>
+        <input type="date" id="dateto" name="toDate">
+        <label for="locationto">Select Location where trips finishes:</label>
+        <select id="locationto" name="toLocation" required>
+            <option value="" disabled selected>Select a location</option>
+            <% locations.forEach(loc => { %>
+                <option value="<%= loc.zipcode %>"><%= loc.name %></option>
+            <% }) %>
+        </select>
+
+        <label for="driverid">Driver dni: </label>
+        <input type="number" id="driverid" name="driverid">
+
+        <label for="name">Trip's name: </label>
+        <input type="text" id="name" name="name">
+        
+        <label for="maxpassengers">Max passengers: </label>
+        <input type="number" id="maxpassengers" name="maxPassengers">
+
+        <button type="submit">Submit</button>
+    </form> 
+  </body>
+</html>
+
+
+

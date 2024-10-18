@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Locations</title>
+    <link rel="stylesheet" type="text/css" href="/styleViewLocations.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Locations</h1>
+    <ul>
+        <% locations.forEach((l) => { %>
+            <li>
+                <%= l.zipcode %>
+                <%= l.name %>
+                <form action="/locations/deleteLocation/<%= l.zipcode %>" method="POST">
+                  <button type="submit">Delete Location</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+    <div class="btn-container">
+      <a href="/locations/createLocation" class="btn">
+          <span> Create Location </span>
+      </a>
+    </div>
+  </body>
+</html>
+
+
+

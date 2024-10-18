@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Trip Details</title>
+    <link rel="stylesheet" type="text/css" href="/styleViewLocations.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Trip Details</h1>
+    <ul>
+        <li>
+            <%= trip.name %>
+            <%= trip.fromdate %>
+            <%= trip.locationfrom %>
+            <%= trip.todate %>
+            <%= trip.locationto %>
+            <%= trip.maxpassengers %>
+        </li>
+    </ul>
+    <a href="/editTrip/<%= trip.id %>">
+        <span> Edit trip </span>
+    </a>
+    <a href="/deleteTrip/<%= trip.id %>">
+      <span> Delete </span>
+    </a>
+    <a href="/">
+        <span> Home </span>
+    </a>
+    
+  </body>
+
+</html>
+
+
+

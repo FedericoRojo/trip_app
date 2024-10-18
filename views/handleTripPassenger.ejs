@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Hadle trip passengers</title>
+    <link rel="stylesheet" type="text/css" href="/styleHandleTP.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Passengers from <%= trip.name %> </h1>
+    <% if (error) { %>
+      <p>Error: <%= error %></p>
+    <% } %>
+    <form method="POST" action="/trip/<%= trip.id %>/addPassenger">
+        <label for="passengername">Passenger Name:</label>
+        <input type="text" id="passengername" name="passengername">
+      
+        <label for="dni">DNI:</label>
+        <input type="number" id="dni" name="dni">
+
+        <button type="submit">Submit</button>
+    </form> 
+    <ul>
+        <% passengers.forEach((p) => { %>
+            <li>
+                <%= p.name %>
+                <%= p.dni %>
+                <form action="/trip/<%= trip.id %>/deletePassenger" method="POST">
+                    <input type="hidden" name="dni" value="<%= p.dni %>" />
+                  <button type="submit">Delete passenger from trip</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+  </body>
+</html>
+
+
+

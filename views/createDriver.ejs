@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Create Driver</title>
+  <link rel="stylesheet" type="text/css" href="/styleCreateDriver.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Create Driver</h1>
+    <% if (error) { %>
+      <p>Error: <%= error %></p>
+    <% } %>
+    <form method="POST" action="/drivers/createDriver">
+        <label for="drivername">Driver name:</label>
+        <input type="text" id="drivername" name="drivername">
+      
+        <label for="dni">DNI:</label>
+        <input type="number" id="dni" name="dni">
+
+        <button type="submit">Submit</button>
+    </form> 
+  </body>
+</html>
+
+
+

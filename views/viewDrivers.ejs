@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Drivers</title>
+    <link rel="stylesheet" type="text/css" href="/styleViewLocations.css">
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h1>Drivers</h1>
+    <ul>
+        <% drivers.forEach((d) => { %>
+            <li>
+                <%= d.name %>
+                <%= d.dni %>
+                <form action="/drivers/deleteDriver/<%= d.dni %>" method="POST">
+                  <button type="submit">Delete driver</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/drivers/createDriver">
+        <span> Create Driver </span>
+    </a>
+  </body>
+</html>
+
+
+
