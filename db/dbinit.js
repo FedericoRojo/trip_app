@@ -77,7 +77,7 @@ INSERT INTO drives (driver, trip) VALUES
 async function main (){
     console.log("seeding..");
     const client = new Client({
-        connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`,
+        connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`,
     });
     await client.connect();
     await client.query(SQL);
